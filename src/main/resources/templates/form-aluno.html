@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Aluno</title>
+</head>
 <body>
-<h2>Novo Cadastro</h2>
+<h1>Novo Cadastro</h1>
 <form th:action="@{/alunos/salvar}" th:object="${aluno}" method="post">
-    Nome: <input type="text" th:field="*{nome}" /><br/>
-    Curso: <input type="text" th:field="*{curso}" /><br/>
+    <p>Nome: <input type="text" th:field="*{nome}" required /></p>
+    <p>Curso: <input type="text" th:field="*{curso}" required /></p>
     <button type="submit">Salvar Aluno</button>
 </form>
+<br>
+<a href="/alunos">Voltar para a lista</a>
 </body>
 </html>

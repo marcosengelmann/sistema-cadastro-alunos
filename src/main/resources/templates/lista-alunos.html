@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Alunos</title>
+</head>
 <body>
-<h2>Alunos Cadastrados</h2>
+<h1>Alunos Cadastrados</h1>
 <a href="/alunos/novo">Cadastrar Novo Aluno</a>
+<hr>
 <table border="1">
+    <thead>
     <tr>
-        <th>ID</th><th>Nome</th><th>Curso</th><th>Ações</th>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Curso</th>
+        <th>Ações</th>
     </tr>
+    </thead>
+    <tbody>
     <tr th:each="aluno : ${alunos}">
         <td th:text="${aluno.id}"></td>
         <td th:text="${aluno.nome}"></td>
@@ -15,6 +26,7 @@
             <a th:href="@{/alunos/excluir/{id}(id=${aluno.id})}">Excluir</a>
         </td>
     </tr>
+    </tbody>
 </table>
 </body>
 </html>
